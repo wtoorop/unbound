@@ -5832,18 +5832,6 @@ xfr_probe_send_probe(struct auth_xfer* xfr, struct module_env* env,
 				zname, master->host);
 			return 0;
 		}
-		if (auth_name != NULL) {
-			if (addr.ss_family == AF_INET
-			&&  ntohs(((struct sockaddr_in *)&addr)->sin_port)
-		            == 853)
-				((struct sockaddr_in *)&addr)->sin_port
-					= htons(53);
-			else if (addr.ss_family == AF_INET6
-			&&  ntohs(((struct sockaddr_in6 *)&addr)->sin6_port)
-		            == 853)
-                        	((struct sockaddr_in6 *)&addr)->sin6_port
-					= htons(853);
-		}
 	}
 
 	/* create packet */
